@@ -1,0 +1,48 @@
+INTEGRACIÓN
+La correlación es una medida estadística que indica la relación entre dos variables. 
+En el contexto de la integración de datos, el test de correlación se utiliza para identificar 
+atributos redundantes, es decir, aquellos atributos que tienen una alta correlación entre sí y, 
+por lo tanto, no aportan información adicional significativa.
+
+Para llevar a cabo el test de correlación, se puede utilizar una matriz de correlación, que es 
+una tabla que muestra la correlación entre todas las parejas posibles de atributos. En esta matriz, 
+los valores de correlación pueden oscilar entre -1 y 1, donde -1 indica una correlación negativa 
+perfecta (es decir, cuando una variable aumenta, la otra disminuye) y 1 indica una correlación 
+positiva perfecta (es decir, cuando una variable aumenta, la otra también aumenta). Un valor de 
+0 indica que no hay correlación entre las variables.
+
+Esto puede ayudar a reducir el ruido y mejorar la eficacia del análisis posterior.
+
+Para decidir qué atributo eliminar, debemos tener en cuenta cuál de ellos es más relevante para 
+nuestro análisis.
+
+
+NORMALIZACIÓN
+La normalización es una técnica utilizada en el preprocesamiento de datos para escalar los valores 
+de los atributos a un rango determinado. La normalización puede ser útil para mejorar el rendimiento 
+de algunos algoritmos de aprendizaje automático, especialmente aquellos que son sensibles a las 
+diferencias de escala entre los atributos.
+
+X_norm_mm = (X - X_min) / (X_max - X_min)
+X_norm_Z = (X - X_mean) / X_std
+
+
+VALORES AUSENTES
+Asignar el valor más común de la variable:
+    Esta técnica consiste en reemplazar los valores ausentes de una variable con el valor más común de 
+    esa variable en la muestra. Si la variable es categórica, se utiliza la moda (valor más frecuente) y 
+    si es numérica, se utiliza la media o la mediana.
+    
+Asignar el valor más común de la variable en el concepto:
+    En lugar de reemplazar los valores ausentes con el valor más común en la muestra, se utiliza el valor más 
+    común en un subconjunto de la muestra que comparte características similares con los valores ausentes. Por 
+    ejemplo, si un valor ausente en una variable de ingresos está asociado con un solicitante de préstamo que 
+    tiene un historial crediticio "malo", se utilizará la moda o la media de los ingresos de otros solicitantes 
+    con historial crediticio "malo".
+
+Imputación con el k-ésimo vecino más cercano (KNNI):
+    Esta técnica utiliza un algoritmo de aprendizaje automático para predecir los valores ausentes en función de 
+    otros atributos en la muestra. Se selecciona un valor k (un número entero) y se buscan los k vecinos más cercanos 
+    en función de los atributos conocidos.
+    ** Solo funciona con valores de tipo numérico, en caso contrario se deberá hacer algun tipo de conversión para 
+       transformarlos dichos valores a tipo numérico **
